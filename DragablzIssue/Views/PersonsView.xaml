@@ -14,15 +14,13 @@
     prism:ViewModelLocator.AutoWireViewModel="True"
     mc:Ignorable="d">
     <Grid>
-		<Grid.Resources>
-			
-		</Grid.Resources>
         <dockablz:Layout>
             <dragablz:TabablzControl
                 Name="TabsContainer"
                 ConsolidateOrphanedItems="True"
-	            ShowDefaultCloseButton="True"
-	            IsSynchronizedWithCurrentItem="True"
+		ShowDefaultCloseButton="True"
+	        IsSynchronizedWithCurrentItem="True"
+	        Style="{StaticResource MaterialDesignAlternateTabablzControlStyle}"
                 ItemsSource="{Binding Persons}">
                 <dragablz:TabablzControl.ContentTemplate>
                     <DataTemplate DataType="{x:Type tab:TabItemBase}">
