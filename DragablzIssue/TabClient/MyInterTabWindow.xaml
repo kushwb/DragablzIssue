@@ -50,7 +50,10 @@
         </dockablz:Layout.BranchTemplate>
         <!-- a root, named tab control is needed, so when a tab is torn and a new window is created, the new target tab control can be identified -->
         <dragablz:TabablzControl x:Name="InitialTabablzControl"
-                                 AddLocationHint="After" HeaderMemberPath="TabHeader">
+                                 AddLocationHint="After" HeaderMemberPath="TabHeader"
+                                 ShowDefaultCloseButton="True"
+                                 IsSynchronizedWithCurrentItem="True"
+                                 Style="{StaticResource MaterialDesignAlternateTabablzControlStyle}">
             <dragablz:TabablzControl.ContentTemplate>
                 <DataTemplate DataType="{x:Type tab:TabItemBase}">
                 <views:PersonView DataContext="{Binding TabContent}" />
