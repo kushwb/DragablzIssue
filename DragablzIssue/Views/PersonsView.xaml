@@ -14,7 +14,27 @@
     prism:ViewModelLocator.AutoWireViewModel="True"
     mc:Ignorable="d">
     <Grid>
-        <dockablz:Layout>
+        <dockablz:Layout FloatingItemHeaderMemberPath="TabHeader"
+		         IsFloatDropZoneEnabled="True"
+		         FloatingItemsContainerMargin="0 2 0 0">
+		<dockablz:Layout.BranchTemplate>
+				<DataTemplate>
+					<dragablz:TabablzControl  AddLocationHint="After" HeaderMemberPath="TabHeader"
+					                          ShowDefaultCloseButton="True"
+					                          IsSynchronizedWithCurrentItem="True"
+					                          Style="{StaticResource MaterialDesignAlternateTabablzControlStyle}"
+					                          >
+						<dragablz:TabablzControl.ContentTemplate>
+							<DataTemplate DataType="{x:Type tab:TabItemBase}">
+								<views:PersonView DataContext="{Binding TabContent}" />
+							</DataTemplate>
+						</dragablz:TabablzControl.ContentTemplate>
+						<dragablz:TabablzControl.InterTabController>
+							<dragablz:InterTabController InterTabClient="{Binding TabClient}" />
+						</dragablz:TabablzControl.InterTabController>
+					</dragablz:TabablzControl>
+				</DataTemplate>
+			</dockablz:Layout.BranchTemplate>
             <dragablz:TabablzControl
                 Name="TabsContainer"
                 ConsolidateOrphanedItems="True"
